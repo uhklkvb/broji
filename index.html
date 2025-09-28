@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ar" dir=ltr>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجرنا الإلكتروني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- رأس الصفحة -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    متجرنا الإلكتروني
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="ابحث عن منتج...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-actions">
+                    <a href="#"><i class="fas fa-user"></i> تسجيل الدخول</a>
+                    <a href="#" id="cart-icon"><i class="fas fa-shopping-cart"></i> سلة التسوق <span class="cart-count">0</span></a>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#categories">الفئات</a></li>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#offers">العروض</a></li>
+                    <li><a href="https://api.whatsapp.com/message/4DMNGIPJ4KSNI1?autoload=1&app_absent=0">اتصل بنا</a></li>
+                </ul>
+                <div class="menu-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- سلة التسوق -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>سلة التسوق</h2>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- سيتم إضافة العناصر هنا ديناميكيًا -->
+        </div>
+        <div class="cart-total">
+            <span>المجموع:</span>
+            <span id="cart-total-price">0.00 ر.س</span>
+        </div>
+        <div class="cart-actions">
+            <button class="checkout-btn">إتمام الشراء</button>
+            <button class="continue-shopping" id="continue-shopping">مواصلة التسوق</button>
+        </div>
+    </div>
+
+    <!-- قسم البطل -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>تسوق بذكاء، عيش براحة</h1>
+            <p>اكتشف أحدث المنتجات والعروض الحصرية في متجرنا الإلكتروني. جودة عالية وأسعار منافسة.</p>
+            <a href="#products" class="btn">تسوق الآن</a>
+        </div>
+    </section>
+
+    <!-- قسم الفئات -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>فئات المنتجات</h2>
+                <p>استعرض منتجاتنا حسب الفئات المختلفة</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="إلكترونيات">
+                    </div>
+                    <div class="category-info">
+                        <h3>الإلكترونيات</h3>
+                        <p>أحدث الأجهزة الإلكترونية</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="ملابس">
+                    </div>
+                    <div class="category-info">
+                        <h3>الملابس</h3>
+                        <p>أحدث صيحات الموضة</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="منزلية">
+                    </div>
+                    <div class="category-info">
+                        <h3>منتجات منزلية</h3>
+                        <p>كل ما تحتاجه لمنزلك</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="جمال">
+                    </div>
+                    <div class="category-info">
+                        <h3>الجمال والعناية</h3>
+                        <p>منتجات العناية الشخصية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>أحدث المنتجات</h2>
+                <p>اكتشف منتجاتنا الجديدة والحصرية</p>
+            </div>
+            <div class="products-grid">
+                <!-- المنتج 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <span class="product-badge">جديد</span>
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="سماعات رأس">
+                    </div>
+                    <div class="product-info">
+                        <h3>سماعات رأس لاسلكية</h3>
+                        <div class="product-price">
+                            <span class="current-price">299 ر.س</span>
+                            <span class="original-price">399 ر.س</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="1" data-name="سماعات رأس لاسلكية" data-price="299" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">
+                                <i class="fas fa-cart-plus"></i> إضافة
+                            </button>
+                            <a href="#" class="view-details">
+                                <i class="fas fa-eye"></i> تفاصيل
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- المنتج 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <span class="product-badge">عرض</span>
+                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="كاميرا">
+                    </div>
+                    <div class="product-info">
+                        <h3>كاميرا ديجيتال احترافية</h3>
+                        <div class="product-price">
+                            <span class="current-price">1,499 ر.س</span>
+                            <span class="original-price">1,899 ر.س</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="2" data-name="كاميرا ديجيتال احترافية" data-price="1499" data-image="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">
+                                <i class="fas fa-cart-plus"></i> إضافة
+                            </button>
+                            <a href="#" class="view-details">
+                                <i class="fas fa-eye"></i> تفاصيل
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- المنتج 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="ساعة ذكية">
+                    </div>
+                    <div class="product-info">
+                        <h3>ساعة ذكية متطورة</h3>
+                        <div class="product-price">
+                            <span class="current-price">599 ر.س</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="3" data-name="ساعة ذكية متطورة" data-price="599" data-image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">
+                                <i class="fas fa-cart-plus"></i> إضافة
+                            </button>
+                            <a href="#" class="view-details">
+                                <i class="fas fa-eye"></i> تفاصيل
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- المنتج 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="حذاء رياضي">
+                    </div>
+                    <div class="product-info">
+                        <h3>حذاء رياضي مريح</h3>
+                        <div class="product-price">
+                            <span class="current-price">199 ر.س</span>
+                            <span class="original-price">249 ر.س</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="4" data-name="حذاء رياضي مريح" data-price="199" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">
+                                <i class="fas fa-cart-plus"></i> إضافة
+                            </button>
+                            <a href="#" class="view-details">
+                                <i class="fas fa-eye"></i> تفاصيل
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم العروض الخاصة -->
+    <section class="special-offers" id="offers">
+        <div class="container">
+            <div class="offer-banner">
+                <h2>عروض خاصة محدودة الوقت!</h2>
+                <p>خصم يصل إلى 50% على مجموعة مختارة من المنتجات. سارع قبل نفاد الكمية!</p>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div>أيام</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div>ساعات</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div>دقائق</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div>ثواني</div>
+                    </div>
+                </div>
+                <a href="#products" class="btn">استفد من العروض</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التسجيل للنشرة البريدية -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="section-title">
+                <h2>اشترك في نشرتنا البريدية</h2>
+                <p>كن أول من يعرف عن العروض والمنتجات الجديدة</p>
+            </div>
+            <form class="newsletter-form">
+                <input type="email" placeholder="بريدك الإلكتروني" required>
+                <button type="submit">اشترك</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن المتجر</h3>
+                    <p>متجرنا الإلكتروني هو وجهتك الأولى للتسوق عبر الإنترنت. نقدم منتجات عالية الجودة بأسعار منافسة.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://api.whatsapp.com/message/4DMNGIPJ4KSNI1?autoload=1&app_absent=0"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <a href="#home">الرئيسية</a>
+                    <a href="#categories">الفئات</a>
+                    <a href="#products">المنتجات</a>
+                    <a href="#offers">العروض</a>
+                    <a href=https://api.whatsapp.com/message/4DMNGIPJ4KSNI1?autoload=1&app_absent=0"">اتصل بنا</a>
+                </div>
+                <div class="footer-section">
+                    <h3>خدمة العملاء</h3>
+                    <a href="#">الشروط والأحكام</a>
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">سياسة الإرجاع</a>
+                    <a href="#">الأسئلة الشائعة</a>
+                </div>
+                <div class="footer-section">
+                    <h3>معلومات الاتصال</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> lisasfa 9asbat lamine</p>
+                    <p><i class="fas fa-phone"></i> +212 627 349 795</p>
+                    <p><i class="fas fa-envelope"></i> amahhee1020e@gmail.com</p>
+                    <h3>طرق الدفع</h3>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2025 متجرنا الإلكتروني</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <div class="scroll-top">↑</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
